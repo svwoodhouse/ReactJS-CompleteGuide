@@ -39,12 +39,12 @@ const ExpenseForm = (props) => {
     // By default, forms update the page onSubmit so to prevent that from 
     // happenning we use the preventDefault() function
         event.preventDefault();
-        const expenseData = {
+        const expense = {
             title: enteredTitle, 
             amount: enteredAmount,
             date: new Date(enteredDate)
         }
-        props.onSaveExpenseData(expenseData)
+        props.onSaveExpenseData(expense)
         setEnteredTitle('')
         setEnteredAmount('')
         setEnteredDate('')
