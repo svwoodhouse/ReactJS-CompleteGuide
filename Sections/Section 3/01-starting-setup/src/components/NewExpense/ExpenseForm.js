@@ -50,22 +50,8 @@ const ExpenseForm = (props) => {
         setEnteredDate('')
 
     }
-    const [showAddExpensePanel, setShowAddExpensePanel] = useState(true)
 
-    const showingAddExpensePanel = () => {
-        setShowAddExpensePanel(current => !current)
-    }
-
-    return ( 
-        <>
-        { 
-            showAddExpensePanel && 
-                <div className='new-expense__actions'>
-                    <button type='button' onClick={showingAddExpensePanel}>Add Expense</button>
-                </div>
-        }
-        {
-            !showAddExpensePanel &&
+    return (
             <form onSubmit={submitHandler}>
                 <div className='new-expense__controls'>
                     <div className='new-expense__control'>
@@ -83,11 +69,9 @@ const ExpenseForm = (props) => {
                 </div>
                 <div className='new-expense__actions'>
                     <button type='submit'>Add Expense</button>
-                    <button type='button' onClick={showingAddExpensePanel}>Cancel</button>
+                    <button type='button' onClick={props.onCancel}>Cancel</button>
                 </div>
             </form>
-        }
-        </>
         )
     }
 
