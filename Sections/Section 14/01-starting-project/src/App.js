@@ -21,10 +21,9 @@ function App() {
 
   const [movies, setMovies] = useState([])
 
-  function fetchMoviesHandler() {
-    fetch('https://swapi.py4e.com/api/films').then(response => {
-      return response.json();
-    }).then(data => {
+  async function fetchMoviesHandler() {
+    const response = await fetch('https://swapi.py4e.com/api/films')
+    const data = await response.json();
       const transformedMovies = data.results.map(movieData => {
         return {
           id: movieData.episode_id,
@@ -34,7 +33,6 @@ function App() {
         }
       })
       setMovies(transformedMovies)
-    })
   }
 
   return (
